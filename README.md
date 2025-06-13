@@ -4,6 +4,15 @@
 
 搭配 CentroidTracker 多對象質心追蹤演算法，當車輛穿越設定的計數線時自動計數，並將結果連同時間戳記儲存到 MySQL 資料庫中
 
+# 流程
+
+1. 影片輸入（檔案 / 攝影機）
+2. 影像處理（OpenCV）
+3. SSD 檢測（MobileNet）
+4. 物件追蹤（dlib）
+5. 計數邏輯（偵測越線 +1）
+6. 資料儲存（MySQL）
+
 # 影像處理流程
 
 - 幀差異檢測 - 使用 `cv2.absdiff()` 比較前後影像找出有在移動的物件(`把連續兩張影像相減，看哪裡有變化`)
@@ -22,10 +31,6 @@
 - 即時顯示：視覺化檢測結果和計數資訊
 - 資料庫儲存：記錄時間戳和計數資料，存到資料庫
 
-# 流程
-
-影片輸入(檔案/攝影機) → 影像處理(OpenCV) → SSD 檢測(MobileNet) → 物件追蹤(dlib) → 計數邏輯(偵測越線+1) → 資料庫(MySQL)
-
 # 參數調整
 
 - min_contour_width = 40 # 最小物件寬度
@@ -33,6 +38,18 @@
 - line_height = 550 # 計數線位置
 - offset = 10 # 計數容差範圍
 
-# 資料庫設定
 
-更新程式碼中的資料庫連接參數：
+# demo
+
+越過計數線的車輛會自動計數，並在畫面上顯示當前計數結果。程式會持續追蹤車輛，直到畫面或影片結束
+
+![demo](https://github.com/youngOman/openCV-vehicle-counter/blob/images/count_result.png)
+
+查看是否有成功 INSERT 計數結果到資料庫中，若有的話 TERMINAL 應會顯示計數數量與時間
+
+![demo](https://github.com/youngOman/openCV-vehicle-counter/blob/images/cmd_insert_message.png)
+
+去 MySQL 資料庫中也能看到計數結果，之後就能很方便地針對這些資料進行進一步的分析或資料統計+視覺化
+
+![demo](https://github.com/youngOman/openCV-vehicle-counter/blob/images/mysql.png)
+

@@ -202,10 +202,10 @@ while ret:
                         user=os.getenv("DB_USER"),
                         password=os.getenv("DB_PASSWORD"),
                         db=os.getenv("DB_NAME"),
-                        charset="os.getenv('DB_CHARSET', 'utf8mb4')",
+                        charset=os.getenv('DB_CHARSET', 'utf8mb4'),
                         cursorclass=pymysql.cursors.DictCursor)
                     cursor = db.cursor()
-                    sql = "INSERT INTO `counter`(`time`,`population`) VALUES(%s, %s)"
+                    sql = "INSERT INTO `counter`(`time`,`vehicle_count`) VALUES(%s, %s)"
                     cursor.execute(sql, (datetime_str, str(totalUp)))
                     print(f"資料已儲存: {datetime_str}, 總計: {totalUp}")
                     db.commit()
