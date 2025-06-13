@@ -43,13 +43,13 @@
 
 越過計數線的車輛會自動計數，並在畫面上顯示當前計數結果。程式會持續追蹤車輛，直到畫面或影片結束
 
-![demo](https://github.com/youngOman/openCV-vehicle-counter/blob/images/count_result.png)
+![demo](https://github.com/youngOman/openCV-vehicle-counter/blob/main/images/count_result.png)
 
 查看是否有成功 INSERT 計數結果到資料庫中，若有的話 TERMINAL 應會顯示計數數量與時間
 
-![demo](https://github.com/youngOman/openCV-vehicle-counter/blob/images/cmd_insert_message.png)
+![demo](https://github.com/youngOman/openCV-vehicle-counter/blob/main/images/cmd_insert_message.png)
 
 去 MySQL 資料庫中也能看到計數結果，之後就能很方便地針對這些資料進行進一步的分析或資料統計+視覺化
 
-![demo](https://github.com/youngOman/openCV-vehicle-counter/blob/images/mysql.png)
+![demo](https://github.com/youngOman/openCV-vehicle-counter/blob/main/images/mysql.png)
 
