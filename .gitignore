@@ -3,4 +3,5 @@
 *.pyc
 __pycache__/
 *.log
-.DS_Storeg
+.DS_Store
+
